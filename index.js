@@ -9,6 +9,13 @@ const vm = new Vue({
     tmp: [],
     squareMapping: ["topLeft", "topRight", "bottomLeft", "bottomRight"],
   },
+  computed: {
+    score() {
+      const value = this.sequence.length - 1;
+      return value < 0 ? "score : 0 " : `score : ${value}`;
+    },
+  },
+
   methods: {
     addNewElemToSequence() {
       this.sequence.push(this.squareMapping[Math.floor(Math.random() * 4)]);
@@ -25,12 +32,6 @@ const vm = new Vue({
     newgame() {
       this.sequence = [];
       this.nextTurn();
-      //   this[this.sequence[0]] = true;
-      //   this.tmp = this.sequence.slice();
-
-      //   setTimeout(function () {
-      //     vm.allgray();
-      //   }, 300);
     },
 
     nextTurn() {
@@ -62,7 +63,7 @@ const vm = new Vue({
           vm.tmp.shift();
           if (!vm.tmp[0]) {
             vm.nextTurn();
-          } 
+          }
         }, 400);
       } else {
         alert("LOST");
