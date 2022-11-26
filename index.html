@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- production version, optimized for size and speed -->
-        <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="./style.css">
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
 		<title>Game Colors</title>
@@ -20,18 +21,20 @@
 			** Nous afficherons ici le score **
 			<hr>
 			<div>
-				<span class="square" :class="{blue:topLeft}"></span>
-				<span class="square" :class="{red:topRight}"></span>
+				<span class="square" @click='selectSquare("topLeft")' :class="{blue:topLeft}"></span>
+				<span class="square" @click='selectSquare("topRight")' :class="{red:topRight}"></span>
+
 			</div>
 			<div>
-				<span class="square" :class="{green:bottomLeft}"></span>
-                <span class="square" :class="{yellow:bottomRight}"></span>
+				<span class="square" @click='selectSquare("bottomLeft")' :class="{green:bottomLeft}"></span>
+				<span class="square" @click='selectSquare("bottomRight")' :class="{yellow:bottomRight}"></span>
+
 
 			</div>
 
-            <hr>
-                <span>sequence:</span>
-                    <pre>{{sequence}}</pre>
+			<hr>
+			<span>sequence:</span>
+			<pre>{{sequence}}</pre>
 		</div>
 
 		<script type="text/javascript" src="./index.js"></script>
